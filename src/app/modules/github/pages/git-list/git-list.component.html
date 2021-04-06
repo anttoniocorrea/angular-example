@@ -1,0 +1,17 @@
+<mat-grid-list cols="1" rowHeight="70px">
+  <mat-grid-tile>
+    <div fxLayout="row wrap">
+      <h2>Pesquise por um usuário no Github</h2>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-tile>
+    <form (ngSubmit)="submit()" novalidate>
+      <mat-form-field class="form-field">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [formControl]="searchControl" type="search" placeholder="Pesquisar" class="search-input">
+      </mat-form-field>
+      <button mat-stroked-button class="button-search">Pesquisar</button>
+    </form>
+  </mat-grid-tile>
