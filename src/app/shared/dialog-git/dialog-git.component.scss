@@ -1,0 +1,80 @@
+.profile {
+  border-radius: 50%;
+  max-height: 150px;
+  display: block;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.header {
+  background: linear-gradient(180deg, #c2185b 50%, #424242 50%);
+  text-align: center;
+}
+
+.button-profile {
+  display: block;
+  background-color: #c2185b;
+  border: 1px solid white;
+  width: 150px;
+  height: 40px;
+  margin-right: 15px;
+  margin-left: auto;
+}
+
+.button-profile a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 11px 0px;
+}
+
+.button-repo {
+  display: block;
+  background-color: white;
+  border: 1px solid #c2185b;
+  width: 150px;
+  height: 40px;
+  margin-right: auto;
+  margin-left: 15px;
+}
+
+.button-repo a {
+  color: #c2185b;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 11px 0px;
+}
+
+.subtitle {
+  padding-left: 25px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.dialog-message {
+  padding-left: 30px;
+  margin: 0px;
+  margin-bottom: 15px;
+}
+
+.link-repo {
+  color: white;
+  text-align: left;
+  width: 100%;
+  display: block;
+  margin-left: 0px;
+  margin-right: 15px;
+  padding-left: 15px;
+}
+
+.link-repo a{
+  color: white;
+}
+
+.none-user{
+  padding: 30px;
+  font-size: 18px;
+  text-align: center;
+}

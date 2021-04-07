@@ -1,0 +1,78 @@
+<div class="git-dialog" *ngIf="data.error == false">
+  <div class="header">
+    <div mat-card-avatar class="example-header-image"></div>
+    <a [href]="data.user.html_url" target="_blank">
+      <img mat-card-image [src]="data.user.avatar_url" alt="profile photo" class="profile">
+    </a>
+    <h1 mat-dialog-title>{{ data.user.name }}</h1>
+    <mat-grid-list cols="2" rowHeight="70px">
+      <mat-grid-tile>
+        <div class="button-profile">
+          <a [href]="data.user.html_url" target="_blank" mat-button>
+            Perfil Github
+          </a>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="button-repo">
+          <a [href]="'https://github.com/'+data.user.login+'?tab=repositories'" target="_blank" mat-button>
+            Repositórios
+          </a>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-dialog-content>
+    <mat-tab-group>
+      <mat-tab label="Informações">
+        <p class="subtitle">Bio</p>
+        <p class="dialog-message bio"> {{ data.user.bio ? data.user.bio : 'Não disponível'}}</p>
+        <mat-divider></mat-divider>
+        <p class="subtitle">Seguidores</p>
+        <p class="dialog-message">{{ data.user.followers ? data.user.followers : 'Não disponível'}}</p>
+        <mat-divider></mat-divider>
+        <p class="subtitle">Seguindo</p>
+        <p class="dialog-message">{{ data.user.following ? data.user.following : 'Não disponível' }}</p>
+        <mat-divider></mat-divider>
+        <p class="subtitle">E-mail</p>
+        <p class="dialog-message">{{ data.user.email ? data.user.email : 'Não disponível' }}</p>
+        <mat-divider></mat-divider>
+      </mat-tab>
+      <mat-tab label="Repositórios">
+        <mat-grid-list cols="1" rowHeight="7:1">
+          <ng-container>
+            <mat-grid-tile *ngFor="let item of data.repos">
+              <div class="link-repo">
+                <mat-icon>star</mat-icon>{{ item.stargazers_count}}<br>
+                <a [href]="item.html_url" target="_blank" mat-button>
+                  {{ item.name}}
+                </a>
+                <mat-divider></mat-divider>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="data.repos.length == 0">
+              <div class="link-repo">
+                <p>Esse usuário ainda não possui repositórios.</p>
+              </div>
+            </mat-grid-tile>
+          </ng-container>
+        </mat-grid-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div mat-dialog-actions>
+    <!-- <button class="btn btn-cancel" style="margin-right:10px;" (click)="cancel()">{{ data.user.cancelText }}</button>
+  <button class="btn" (click)="confirm()">{{ data.user.confirmText }}</button> -->
+  </div>
+</div>
+<div class="git-dialog" *ngIf="data.error">
+  <mat-divider></mat-divider>
+  <div mat-dialog-content>
+    <p class="dialog-message none-user">Nenhum usuário foi encontrado!</p>
+  </div>
+  <div mat-dialog-actions>
+    <!-- <button class="btn btn-cancel" style="margin-right:10px;" (click)="cancel()">{{ data.user.cancelText }}</button>
+  <button class="btn" (click)="confirm()">{{ data.user.confirmText }}</button> -->
+  </div>
+</div>
